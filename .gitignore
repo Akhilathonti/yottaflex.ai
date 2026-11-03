@@ -1,0 +1,31 @@
+# Python Bytecode and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment and Secrets
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Testing and Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Runtime SQLite Database and Large Raw Telemetry
+# (Automatically regenerated deterministically via `python -m src.data_generation.generate_data`)
+*.db
+*.sqlite
+*.sqlite3
+data/logistics.db
+data/raw/
+
+# System and IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

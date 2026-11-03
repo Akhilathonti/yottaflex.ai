@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-11-02T14:31:00.086511",
+  "random_seed": 20261022,
+  "counts": {
+    "service_levels": 4,
+    "carriers": 8,
+    "facilities": 100,
+    "routes": 600,
+    "weather_events": 200,
+    "facility_queues": 2500,
+    "facility_weather_events": 599,
+    "delay_reasons": 8,
+    "shipments": 500,
+    "shipment_legs": 1145,
+    "tracking_events": 6068,
+    "eta_estimates": 500,
+    "shipment_delay_reasons": 165
+  },
+  "total_events": 6068,
+  "total_anomalies_injected": 14,
+  "on_time_shipments": 335,
+  "delayed_shipments": 165,
+  "delay_rate": 0.33
+}

@@ -1,0 +1,127 @@
+{
+  "timestamp": "2026-11-02T14:32:30.905530",
+  "total_checks": 20,
+  "passed_checks": 11,
+  "failed_checks": 12,
+  "warning_count": 1,
+  "anomaly_detected_count": 13,
+  "issues": [
+    {
+      "check_category": "STRUCTURAL",
+      "check_name": "PRIMARY_KEY_UNIQUENESS",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000005-000001",
+      "description": "Duplicate primary key EVT-SHP-2026-000005-000001 detected in table tracking_events.",
+      "details": {}
+    },
+    {
+      "check_category": "STRUCTURAL",
+      "check_name": "PRIMARY_KEY_UNIQUENESS",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000005-000001",
+      "description": "Duplicate primary key EVT-SHP-2026-000005-000001 detected in table tracking_events.",
+      "details": {}
+    },
+    {
+      "check_category": "STRUCTURAL",
+      "check_name": "FOREIGN_KEY_INTEGRITY",
+      "severity": "ERROR",
+      "table_name": "shipments",
+      "affected_entity_id": "SHP-2026-000011",
+      "description": "Orphan record: primary_carrier_id 'CAR-999-NONEXISTENT' not found in carriers.carrier_id.",
+      "details": {}
+    },
+    {
+      "check_category": "STRUCTURAL",
+      "check_name": "ALLOWED_ENUM_VALIDATION",
+      "severity": "ERROR",
+      "table_name": "shipments",
+      "affected_entity_id": "SHP-2026-000013",
+      "description": "Invalid enum value 'INVALID_STATE_DISPATCHED_AGAIN' in column status. Allowed: {'CREATED', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED', 'IN_TRANSIT', 'EXCEPTION'}.",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "INGESTION_AFTER_EVENT_TIME",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000001-000001",
+      "description": "Temporal causality breach: ingestion (2026-05-31T19:00:00) < event (2026-05-31T22:00:00).",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "LEG_TRANSIT_CHRONOLOGY",
+      "severity": "ERROR",
+      "table_name": "shipment_legs",
+      "affected_entity_id": "LEG-SHP-2026-000002-01",
+      "description": "Chronology violation: arrival (2026-06-01T04:01:00) is before departure (2026-06-01T05:39:00).",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "EVENT_SEQUENCE_ORDER",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "SHP-2026-000005",
+      "description": "Non-sequential jump in event sequence: 1 -> 1",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "EVENT_SEQUENCE_ORDER",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "SHP-2026-000007",
+      "description": "Non-sequential jump in event sequence: 1 -> 15",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "EVENT_SEQUENCE_ORDER",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "SHP-2026-000012",
+      "description": "Non-sequential jump in event sequence: 1 -> 3",
+      "details": {}
+    },
+    {
+      "check_category": "TEMPORAL",
+      "check_name": "EXCESSIVE_INGESTION_LATENCY",
+      "severity": "WARNING",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000006-000015",
+      "description": "Delayed tracking scan: ingestion lag is 84.0 hours.",
+      "details": {}
+    },
+    {
+      "check_category": "BUSINESS",
+      "check_name": "STATUS_DELIVERED_CONSISTENCY",
+      "severity": "ERROR",
+      "table_name": "shipments",
+      "affected_entity_id": "SHP-2026-000004",
+      "description": "Shipment has DELIVERED tracking event but header status remains IN_TRANSIT.",
+      "details": {}
+    },
+    {
+      "check_category": "BUSINESS",
+      "check_name": "DUPLICATE_EVENT_SEQUENCE",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000005-000001",
+      "description": "Duplicate event sequence 1 on shipment SHP-2026-000005.",
+      "details": {}
+    },
+    {
+      "check_category": "BUSINESS",
+      "check_name": "DUPLICATE_EVENT_SEQUENCE",
+      "severity": "ERROR",
+      "table_name": "tracking_events",
+      "affected_entity_id": "EVT-SHP-2026-000005-000001",
+      "description": "Duplicate event sequence 1 on shipment SHP-2026-000005.",
+      "details": {}
+    }
+  ]
+}

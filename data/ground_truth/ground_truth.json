@@ -1,0 +1,156 @@
+[
+  {
+    "anomaly_id": "ANOM-0001",
+    "issue_type": "INGESTION_BEFORE_EVENT_TIME",
+    "affected_entity_type": "TrackingEvent",
+    "affected_entity_id": "EVT-SHP-2026-000001-000001",
+    "anomaly_description": "Ingestion timestamp is 3 hours before physical event timestamp (temporal causality violation).",
+    "expected_detection_result": "FAIL_TEMPORAL_INTEGRITY",
+    "ground_truth_label": "ANOMALY_TEMPORAL_CAUSALITY",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.937945"
+  },
+  {
+    "anomaly_id": "ANOM-0002",
+    "issue_type": "IMPOSSIBLE_ROUTE_CHRONOLOGY",
+    "affected_entity_type": "ShipmentLeg",
+    "affected_entity_id": "LEG-SHP-2026-000002-01",
+    "anomaly_description": "Actual arrival is 2 hours before departure timestamp on leg.",
+    "expected_detection_result": "FAIL_ROUTE_CHRONOLOGY",
+    "ground_truth_label": "ANOMALY_IMPOSSIBLE_TRANSIT_ORDER",
+    "severity": "CRITICAL",
+    "injected_timestamp": "2026-11-02T14:30:59.942166"
+  },
+  {
+    "anomaly_id": "ANOM-0003",
+    "issue_type": "FUTURE_EVENT_LEAKAGE",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000003",
+    "anomaly_description": "Synthetic feature generation evaluated using events past evaluation horizon T.",
+    "expected_detection_result": "FAIL_LEAKAGE_PREVENTION_CHECK",
+    "ground_truth_label": "ANOMALY_DATA_LEAKAGE",
+    "severity": "CRITICAL",
+    "injected_timestamp": "2026-11-02T14:30:59.942306"
+  },
+  {
+    "anomaly_id": "ANOM-0004",
+    "issue_type": "DELIVERED_MARKED_IN_TRANSIT",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000004",
+    "anomaly_description": "Shipment has physical DELIVERED event scan but shipment header status remains IN_TRANSIT.",
+    "expected_detection_result": "FAIL_LIFECYCLE_STATUS_CONSISTENCY",
+    "ground_truth_label": "ANOMALY_STATUS_MISMATCH",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.945726"
+  },
+  {
+    "anomaly_id": "ANOM-0005",
+    "issue_type": "DUPLICATE_TRACKING_EVENT",
+    "affected_entity_type": "TrackingEvent",
+    "affected_entity_id": "EVT-SHP-2026-000005-000001",
+    "anomaly_description": "Duplicate event record injected for shipment SHP-2026-000005 with identical event_id.",
+    "expected_detection_result": "FAIL_EVENT_UNIQUENESS",
+    "ground_truth_label": "ANOMALY_DUPLICATE_EVENT",
+    "severity": "MEDIUM",
+    "injected_timestamp": "2026-11-02T14:30:59.952276"
+  },
+  {
+    "anomaly_id": "ANOM-0006",
+    "issue_type": "EXCESSIVE_INGESTION_LAG",
+    "affected_entity_type": "TrackingEvent",
+    "affected_entity_id": "EVT-SHP-2026-000006-000015",
+    "anomaly_description": "Ingestion timestamp delayed by 84 hours after operational scan.",
+    "expected_detection_result": "WARN_EXCESSIVE_INGESTION_LATENCY",
+    "ground_truth_label": "ANOMALY_DELAYED_SCAN",
+    "severity": "MEDIUM",
+    "injected_timestamp": "2026-11-02T14:30:59.955284"
+  },
+  {
+    "anomaly_id": "ANOM-0007",
+    "issue_type": "MISSING_INTERMEDIATE_EVENTS",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000007",
+    "anomaly_description": "Missing pickup and sorting scans between creation and final delivery.",
+    "expected_detection_result": "WARN_INCOMPLETE_EVENT_SEQUENCE",
+    "ground_truth_label": "ANOMALY_MISSING_SCANS",
+    "severity": "MEDIUM",
+    "injected_timestamp": "2026-11-02T14:30:59.959749"
+  },
+  {
+    "anomaly_id": "ANOM-0008",
+    "issue_type": "UNPLANNED_ROUTE_DIVERGENCE",
+    "affected_entity_type": "ShipmentLeg",
+    "affected_entity_id": "LEG-SHP-2026-000008-01",
+    "anomaly_description": "Destination facility rerouted to FAC-099 without updated parent shipment plan.",
+    "expected_detection_result": "WARN_ROUTE_DEVIATION",
+    "ground_truth_label": "ANOMALY_ROUTE_DIVERGENCE",
+    "severity": "MEDIUM",
+    "injected_timestamp": "2026-11-02T14:30:59.961096"
+  },
+  {
+    "anomaly_id": "ANOM-0009",
+    "issue_type": "CRITICAL_FACILITY_CONGESTION",
+    "affected_entity_type": "FacilityQueue",
+    "affected_entity_id": "QUE-FAC-001-20260601T000000",
+    "anomaly_description": "Dock queue spike of 180 trailers and 480 min wait time at hub.",
+    "expected_detection_result": "ALERT_CONGESTION_EXCEEDED",
+    "ground_truth_label": "ANOMALY_CONGESTION_SPIKE",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.961943"
+  },
+  {
+    "anomaly_id": "ANOM-0010",
+    "issue_type": "SEVERE_WEATHER_SHUTDOWN",
+    "affected_entity_type": "WeatherEvent",
+    "affected_entity_id": "WTH-2026-0001",
+    "anomaly_description": "Category 4 Blizzard with 75mph winds causing complete corridor shutdown.",
+    "expected_detection_result": "ALERT_WEATHER_DISRUPTION",
+    "ground_truth_label": "ANOMALY_WEATHER_EMERGENCY",
+    "severity": "CRITICAL",
+    "injected_timestamp": "2026-11-02T14:30:59.963119"
+  },
+  {
+    "anomaly_id": "ANOM-0011",
+    "issue_type": "INVALID_FOREIGN_KEY_REFERENCE",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000011",
+    "anomaly_description": "Shipment references non-existent carrier ID CAR-999-NONEXISTENT.",
+    "expected_detection_result": "FAIL_FOREIGN_KEY_INTEGRITY",
+    "ground_truth_label": "ANOMALY_BROKEN_FK",
+    "severity": "CRITICAL",
+    "injected_timestamp": "2026-11-02T14:30:59.964423"
+  },
+  {
+    "anomaly_id": "ANOM-0012",
+    "issue_type": "INCORRECT_EVENT_SEQUENCE",
+    "affected_entity_type": "TrackingEvent",
+    "affected_entity_id": "EVT-SHP-2026-000012-000002",
+    "anomaly_description": "Event sequence jumps unexpectedly to 99 out of order.",
+    "expected_detection_result": "FAIL_EVENT_SEQUENCE_ORDER",
+    "ground_truth_label": "ANOMALY_OUT_OF_ORDER_SEQUENCE",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.967793"
+  },
+  {
+    "anomaly_id": "ANOM-0013",
+    "issue_type": "INVALID_LIFECYCLE_STATE_VALUE",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000013",
+    "anomaly_description": "Shipment status contains disallowed enum value INVALID_STATE_DISPATCHED_AGAIN.",
+    "expected_detection_result": "FAIL_ENUM_VALIDATION",
+    "ground_truth_label": "ANOMALY_INVALID_ENUM",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.968540"
+  },
+  {
+    "anomaly_id": "ANOM-0014",
+    "issue_type": "PREDICTION_AFTER_DELIVERY",
+    "affected_entity_type": "Shipment",
+    "affected_entity_id": "SHP-2026-000014",
+    "anomaly_description": "ETA prediction timestamp is later than shipment actual delivery time.",
+    "expected_detection_result": "FAIL_PREDICTION_TIMING",
+    "ground_truth_label": "ANOMALY_POST_DELIVERY_PREDICTION",
+    "severity": "HIGH",
+    "injected_timestamp": "2026-11-02T14:30:59.968662"
+  }
+]

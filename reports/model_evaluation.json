@@ -1,0 +1,209 @@
+{
+  "timestamp": "2026-11-02T10:14:43.691463",
+  "random_seed": 20261022,
+  "sample_counts": {
+    "train": 348,
+    "val": 75,
+    "test": 75
+  },
+  "regression_comparison": {
+    "baseline_historical_avg": {
+      "mae_minutes": 319.57,
+      "rmse_minutes": 420.8,
+      "median_ae_minutes": 192.56,
+      "accuracy_within_15m_pct": 1.33,
+      "accuracy_within_30m_pct": 4.0,
+      "accuracy_within_60m_pct": 12.0
+    },
+    "ridge_regression": {
+      "mae_minutes": 129.68,
+      "rmse_minutes": 184.26,
+      "median_ae_minutes": 96.07,
+      "accuracy_within_15m_pct": 6.67,
+      "accuracy_within_30m_pct": 9.33,
+      "accuracy_within_60m_pct": 25.33
+    },
+    "random_forest": {
+      "mae_minutes": 108.37,
+      "rmse_minutes": 181.14,
+      "median_ae_minutes": 45.96,
+      "accuracy_within_15m_pct": 22.67,
+      "accuracy_within_30m_pct": 40.0,
+      "accuracy_within_60m_pct": 53.33
+    },
+    "gradient_boosting": {
+      "mae_minutes": 153.55,
+      "rmse_minutes": 232.7,
+      "median_ae_minutes": 93.07,
+      "accuracy_within_15m_pct": 12.0,
+      "accuracy_within_30m_pct": 22.67,
+      "accuracy_within_60m_pct": 36.0
+    }
+  },
+  "classification_comparison": {
+    "baseline_frequency": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.3467,
+      "brier_score": 0.227,
+      "confusion_matrix": [
+        [
+          49,
+          0
+        ],
+        [
+          26,
+          0
+        ]
+      ]
+    },
+    "logistic_regression": {
+      "precision": 1.0,
+      "recall": 0.9615,
+      "f1_score": 0.9804,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "brier_score": 0.008,
+      "confusion_matrix": [
+        [
+          49,
+          0
+        ],
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    "random_forest": {
+      "precision": 1.0,
+      "recall": 0.9615,
+      "f1_score": 0.9804,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "brier_score": 0.0085,
+      "confusion_matrix": [
+        [
+          49,
+          0
+        ],
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    "gradient_boosting": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "brier_score": 0.0,
+      "confusion_matrix": [
+        [
+          49,
+          0
+        ],
+        [
+          0,
+          26
+        ]
+      ]
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "remaining_route_distance_km",
+      "importance": 0.5033
+    },
+    {
+      "feature": "total_distance_km",
+      "importance": 0.4893
+    },
+    {
+      "feature": "promised_remaining_hours",
+      "importance": 0.0019
+    },
+    {
+      "feature": "target_delivery_hours",
+      "importance": 0.001
+    },
+    {
+      "feature": "carrier_on_time_rating",
+      "importance": 0.0009
+    },
+    {
+      "feature": "hour_of_day",
+      "importance": 0.0006
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.0005
+    },
+    {
+      "feature": "weight_kg",
+      "importance": 0.0004
+    },
+    {
+      "feature": "volume_cbm",
+      "importance": 0.0004
+    },
+    {
+      "feature": "facility_queue_length",
+      "importance": 0.0004
+    },
+    {
+      "feature": "facility_queue_wait_minutes",
+      "importance": 0.0004
+    },
+    {
+      "feature": "weather_severity_score",
+      "importance": 0.0004
+    },
+    {
+      "feature": "time_since_last_event_hours",
+      "importance": 0.0004
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.0001
+    },
+    {
+      "feature": "elapsed_transit_hours",
+      "importance": 0.0
+    },
+    {
+      "feature": "weather_active_flag",
+      "importance": 0.0
+    },
+    {
+      "feature": "delayed_scans_count",
+      "importance": 0.0
+    }
+  ],
+  "subgroups": {
+    "weather_active_subgroup": {
+      "1": {
+        "count": 58,
+        "mae_minutes": 143.4,
+        "rmse_minutes": 221.27
+      },
+      "0": {
+        "count": 17,
+        "mae_minutes": 188.19,
+        "rmse_minutes": 268.02
+      }
+    }
+  },
+  "champion_model": {
+    "regressor": "HistGradientBoostingRegressor",
+    "classifier": "HistGradientBoostingClassifier",
+    "mae_minutes": 153.55,
+    "accuracy_within_30m_pct": 22.67,
+    "f1_score": 1.0,
+    "roc_auc": 1.0
+  }
+}
